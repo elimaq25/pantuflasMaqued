@@ -9,28 +9,26 @@ import { category } from "./Productos";
 const ItemListContainer = () => {
     const [items, setItems] = useState([]);
 
-    let { category } = useParams();
-    
-
-    let id = useParams();
-
-
-   
+    const { category } = useParams();
+      
   
 
-    useEffect((cat)=>{
+    useEffect(()=>{
         // setTimeout(()=>{
 
         // }, 2000
         // )
        
-        const data = new Promise((resolve, reject)=>{
+        const data = new Promise((resolve)=>{
           const productosFiltrados = produc.filter(
-            (prod)=>prod.category === cat);
+            (prod)=>prod.category === category);
            setTimeout(()=>{
-            if (cat === undefined) {
+            if (category === undefined) {
               resolve(produc);
             } else {
+              const productosFiltrados = produc.filter(
+                (prod) => prod.category === category
+              ); 
               resolve(productosFiltrados)
             }
             
@@ -44,7 +42,7 @@ const ItemListContainer = () => {
         data.catch((err) => {
             console.log(err)
         });
-    }, []);
+    }, [category]);
 
   return (
     <>

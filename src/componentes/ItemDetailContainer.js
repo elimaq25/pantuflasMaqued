@@ -1,6 +1,6 @@
 import React from 'react'
 import {useEffect , useState} from "react"
-import {productoUno}  from "./Productos"
+import produc  from "./Productos"
 import ItemDetail from '../componentes/ItemDetail'
 import { Link, useParams } from 'react-router-dom';
 
@@ -8,6 +8,9 @@ import { Link, useParams } from 'react-router-dom';
 const ItemDetailContainer = () => {
    
     const [producto, setProducto] = useState({});
+    const { id } = useParams();
+    // console.log(category)
+
 
     useEffect(()=>{
         // setTimeout(()=>{
@@ -16,7 +19,8 @@ const ItemDetailContainer = () => {
         // )
         const detall = new Promise((resolve, reject)=>{
            setTimeout(()=>{
-            resolve(productoUno);
+               const myData = produc.find((item) => item.id === id)
+            resolve(myData);
            }, 2000)
            
         }); 
@@ -27,12 +31,12 @@ const ItemDetailContainer = () => {
         detall.catch((err) => {
             console.log(err)
         });
-    }, []);
+    }, [id]);
 
   return (
     <div>
         
-        <ItemDetail productoUno={productoUno}/>
+        <ItemDetail {...producto}/>
         
        
     </div>
