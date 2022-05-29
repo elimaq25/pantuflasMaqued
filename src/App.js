@@ -11,13 +11,16 @@ import Depiso from "./componentes/Vistas/Depiso";
 import Inicio from "./componentes/Vistas/Inicio";
 import Plataformas from "./componentes/Vistas/Plataformas";
 import ItemList from "./componentes/ItemList";
-
+import { CartProvider } from "./componentes/CartContext";
 
   
 
 function App() {
   return (
+
     <>
+    
+    
     <Router>
       <div className="App">
       <Header/>
@@ -33,6 +36,7 @@ function App() {
      {/* <ItemCoun></ItemCoun> */}
      </div>
      </Router>
+    
     </>
     
 
