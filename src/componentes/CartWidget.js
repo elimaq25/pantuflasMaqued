@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { BoxIconElement } from 'boxicons'
+import { CartContext } from './CartContext'
 
 
 
 const CartWidget = () => {
+ 
   return (
     <>
     <div>

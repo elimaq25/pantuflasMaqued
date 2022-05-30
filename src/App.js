@@ -3,21 +3,19 @@ import { Header } from "./componentes/NavBar";
 import 'boxicons';
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom"
 //Componentes
-import CartWidget from "./componentes/CartWidget"
+
 import ItemListContainer from "./componentes/ItemListContainer"
-import ItemCoun from "./componentes/ItemCount"
+
 import ItemDetailContainer from "./componentes/ItemDetailContainer";
-import Depiso from "./componentes/Vistas/Depiso";
-import Inicio from "./componentes/Vistas/Inicio";
-import Plataformas from "./componentes/Vistas/Plataformas";
-import ItemList from "./componentes/ItemList";
+
 import { CartProvider } from "./componentes/CartContext";
+
 
   
 
 function App() {
   return (
-
+    <CartProvider>
     <>
     
     
@@ -28,6 +26,7 @@ function App() {
         <Route path="/" element={<ItemListContainer />}/>
         <Route path="/category/:category" element={<ItemListContainer/>}/>
         <Route path="/item/:id" element={<ItemDetailContainer />}/>
+        <Route path="/cart" element={<h1>Carrito</h1>}/>
       </Routes>
     
      <br/>
@@ -36,8 +35,9 @@ function App() {
      {/* <ItemCoun></ItemCoun> */}
      </div>
      </Router>
-    
+     
     </>
+    </CartProvider>
     
 
   );

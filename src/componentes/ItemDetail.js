@@ -1,22 +1,28 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ItemCount from "./ItemCount"
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { CartContext } from './CartContext';
+
+
+
 
 
 const ItemDetail = ({
   title,
   src,
   precio,
-  tallas, 
-  disponibilidad,
   id
 }) => {
  const [add, setAdd] = useState (false)
+ 
+ const [addItem] = useContext(CartContext)
+
 
  const onAdd =() => {
   setAdd(!add)
  }
+
 
   
 
@@ -26,8 +32,6 @@ const ItemDetail = ({
       <h1 className='nombre_detalle'>{title}</h1>
         <img className='foto_detalle' src={src}/>
         <p className='precio_detalle'>Precio: {precio}</p>
-        <p className='descripcion_detalle'> Tallas: {tallas} <br>
-        </br>  Disponibilidad: {disponibilidad} </p>
         <p className='id_detalle'>ID del producto: {id}</p>
       
         
@@ -40,7 +44,7 @@ const ItemDetail = ({
            }
         </div>
         <div>
-        <Link to="/cart"> <button>Finalizar Compra</button></Link>
+        <Link to="/cart" onClick={() =>{addItem(title, precio, id)}}> <button>Finalizar Compra</button></Link>
         </div>
     </div>
     </div>

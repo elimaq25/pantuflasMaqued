@@ -66,15 +66,6 @@ export const produc = [
         }
 ]
 
-export const productoUno = {
-            id: "1234", 
-            title: "modelo StarWars",
-            descripcion: "pantufla con diseño",
-            precio: "$" + 195,
-            src: "/assets/1.jpg",
-            tallas: "de 22 a 26",
-            disponibilidad: "inmediata"
-        
-}
+
 
 export default produc
