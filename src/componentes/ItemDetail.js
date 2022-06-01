@@ -5,9 +5,6 @@ import { Link } from 'react-router-dom';
 import { CartContext } from './CartContext';
 
 
-
-
-
 const ItemDetail = ({
   title,
   src,
@@ -19,8 +16,13 @@ const ItemDetail = ({
  const [addItem] = useContext(CartContext)
 
 
+
+ 
  const onAdd =() => {
   setAdd(!add)
+
+
+  
  }
 
 
@@ -44,7 +46,7 @@ const ItemDetail = ({
            }
         </div>
         <div>
-        <Link to="/cart" onClick={() =>{addItem(title, precio, id)}}> <button>Finalizar Compra</button></Link>
+        <Link to="/cart" onClick={() =>{addItem({title, precio, id})}}> <button>Finalizar Compra</button></Link>
         </div>
     </div>
     </div>
