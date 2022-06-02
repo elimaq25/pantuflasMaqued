@@ -7,9 +7,10 @@ export const CartProvider = ({children}) => {
 
     const [items, setItems] = useState([])
     
-    const addItem = (data) => {
-       let found = undefined
-
+    const addItem = (data) =>{
+        let found = undefined
+    
+        
        const newProduct = {
            id: data.id,
            title: data.title,
@@ -36,16 +37,16 @@ export const CartProvider = ({children}) => {
        }
     }
 
-    const removeItem = (itemId) => {
-        let found = false
+    const removeItem = (id) => {
+        const found = false
 
         items.forEach((item, index)=>{
-            if(item.id === itemId) {
+            if(item.id === id) {
                 found = index
             }
         }); 
 
-        if (found){
+        if (found !== false){
             items.splice(found, 1)
             setItems(items)
         }else {
@@ -70,7 +71,7 @@ export const CartProvider = ({children}) => {
     
     
     return (
-        <CartContext.Provider value={[addItem, removeItem, clear, isInCart]}>
+        <CartContext.Provider value={[addItem, removeItem, clear, isInCart, items]}>
             {children}
         </CartContext.Provider>
     )

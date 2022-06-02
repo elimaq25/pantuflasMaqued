@@ -20,6 +20,7 @@ export const Header = () => {
             <Link to="/" className='menu'>Inicio</Link>
             <Link to="/category/plataformas" className='menu'>Plataformas</Link>
             <Link to="/category/depiso" className='menu'>De piso</Link>
+            
         </ul>
         <div><CartWidget/></div>
     </header>

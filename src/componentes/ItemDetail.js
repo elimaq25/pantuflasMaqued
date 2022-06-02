@@ -20,9 +20,6 @@ const ItemDetail = ({
  
  const onAdd =() => {
   setAdd(!add)
-
-
-  
  }
 
 

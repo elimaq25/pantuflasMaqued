@@ -30,7 +30,7 @@ const Counter = ({stock, initial, onAdd}) => {
         {
             qty > 0 ?
 
-            <button onClick={() => onAdd()} className='estilo_alcarrito'>Agregar al carrito</button>
+            <button onClick={() => onAdd(qty)} className='estilo_alcarrito'>Agregar al carrito</button>
             : 
 
             <button> </button>
